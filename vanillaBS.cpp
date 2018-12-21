@@ -1,15 +1,15 @@
-#include <Random1.h>
+#include "Random1.h"
 #include <iostream>
 #include <cmath>
 using namespace std;
 
-double monteCarlo1(double Expiry, double Strike, double Spot, double Vol, double r, usigned long NumberOfPaths)
+double monteCarlo1(double Expiry, double Strike, double Spot, double Vol, double r, unsigned long NumberOfPaths)
 {
     double variance=Vol*Vol*Expiry;
     double rootVariance=sqrt(variance);
     double itoCorrection=-0.5*variance;
 
-    double movedSpot = spot*exp(r*Expiry+itoCorrection);
+    double movedSpot = Spot*exp(r*Expiry+itoCorrection);
     double thisSpot;
     double runningSum=0;
 
@@ -43,7 +43,7 @@ int main(int argc, char const *argv[])
     cin >> Spot;
     cout << "\nEnter volatily\n";
     cin >> Vol;
-    cout >> "\nEnter r\n";
+    cout << "\nEnter r\n";
     cin >> r;
     cout << "\nNumber of Paths\n";
     cin >> NumberOfPaths;
@@ -54,6 +54,6 @@ int main(int argc, char const *argv[])
 
     double tmp;
     cin >> tmp;
-    
+
     return 0;
 }
